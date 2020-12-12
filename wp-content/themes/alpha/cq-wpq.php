@@ -16,7 +16,21 @@
             // 'post__in'       => $post_ids,
             // 'orderby'        => 'post__in',
             'paged'          => $paged,
-            'category_name' => 'new'
+            // 'category_name' => 'new',
+            'tax_query' =>array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => array('new'),
+                ),
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field' => 'slug',
+                    'terms' => array('special'),
+                )
+            )
+
         ) );
         while($_p->have_posts()) {
             $_p->the_post();
