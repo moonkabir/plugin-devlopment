@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Custom Query
+ * Template Name: Custom Query wpquery
  */
 ?>
 <?php get_header(); ?>
@@ -9,13 +9,14 @@
     <div class="posts text-center">
         <?php
         $paged          = get_query_var( "paged" ) ? get_query_var( "paged" ) : 1;
-        $posts_per_page = -1;
+        $posts_per_page = 2;
         $post_ids       = array( 36, 59, 29, 1, 17, 41);
         $_p             = new WP_Query( array(
             'posts_per_page' => $posts_per_page,
-            'post__in'       => $post_ids,
-            'orderby'        => 'post__in',
-            'paged'          => $paged
+            // 'post__in'       => $post_ids,
+            // 'orderby'        => 'post__in',
+            'paged'          => $paged,
+            'category_name' => 'new'
         ) );
         while($_p->have_posts()) {
             $_p->the_post();
@@ -32,8 +33,16 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-8">
                     <?php
+                    // echo paginate_links( array(
+                    //     'total' => ceil( count( $post_ids ) / $posts_per_page )
+                    // ) );
+
                     echo paginate_links( array(
-                        'total' => ceil( count( $post_ids ) / $posts_per_page )
+                        'total' => $_p->max_num_pages,
+                        'current' => $paged,
+                        // 'prev_text' =>__('New Posts', 'alpha'),
+                        // 'next_text' =>__('Old Posts', 'alpha'),
+                        'prev_next' => false,
                     ) );
                     ?>
                 </div>
