@@ -13,23 +13,28 @@
         $post_ids       = array( 36, 59, 29, 1, 17, 41);
         $_p             = new WP_Query( array(
             'posts_per_page' => $posts_per_page,
-            // 'post__in'       => $post_ids,
-            // 'orderby'        => 'post__in',
+            // // 'post__in'       => $post_ids,
+            // // 'orderby'        => 'post__in',
             'paged'          => $paged,
-            // 'category_name' => 'new',
-            'tax_query' =>array(
-                'relation' => 'OR',
-                array(
-                    'taxonomy' => 'category',
-                    'field' => 'slug',
-                    'terms' => array('new'),
-                ),
-                array(
-                    'taxonomy' => 'post_tag',
-                    'field' => 'slug',
-                    'terms' => array('special'),
-                )
-            )
+            // // 'category_name' => 'new',
+            // 'tax_query' =>array(
+            //     'relation' => 'OR',
+            //     array(
+            //         'taxonomy' => 'category',
+            //         'field' => 'slug',
+            //         'terms' => array('new'),
+            //     ),
+            //     array(
+            //         'taxonomy' => 'post_tag',
+            //         'field' => 'slug',
+            //         'terms' => array('special'),
+            //     )
+            // )
+            'monthnum' => 12,
+            'year' => 2020,
+            // 'post_status' => 'draft'
+            // 'post_status' => 'publish'
+            'post_status' => 'future'
 
         ) );
         while($_p->have_posts()) {
