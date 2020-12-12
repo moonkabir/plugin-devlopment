@@ -30,11 +30,26 @@
             //         'terms' => array('special'),
             //     )
             // )
-            'monthnum' => 12,
-            'year' => 2020,
-            // 'post_status' => 'draft'
-            // 'post_status' => 'publish'
-            'post_status' => 'future'
+            // 'monthnum' => 12,
+            // 'year' => 2020,
+            // // 'post_status' => 'draft'
+            // // 'post_status' => 'publish'
+            // 'post_status' => 'future',
+    
+            'tax_query' =>array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'post_format',
+                    'field' => 'slug',
+                    'terms' => array(
+                        'post-format-audio',
+                        'post-format-video',
+                    ),
+                    'operator'=>'NOT IN',
+                )
+            )
+
+
 
         ) );
         while($_p->have_posts()) {
