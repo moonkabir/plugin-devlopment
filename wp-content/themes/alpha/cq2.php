@@ -21,12 +21,24 @@
             'paged' => $paged
         ));
         foreach ($_p as $post) {
-            setup_postdata($post);
+            // echo "<pre>";
+            // print_r($post);
+            // echo "</pre>";
+
+            // setup_postdata($post);
         ?>
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h2></a>
+            <!-- <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></h2></a> -->
+            <h2>
+
+                <a href="<?php echo esc_url($post->guid); ?>">
+                <?php
+                    echo apply_filters("the_title",$post->post_title);
+                ?>
+                </a>            
+            </h2>
         <?php
         }
-        wp_reset_postdata();
+        // wp_reset_postdata();
         ?>
 
         <div class="container post-pagination">
