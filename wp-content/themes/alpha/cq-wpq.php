@@ -18,8 +18,23 @@
             // // 'post__in'       => $post_ids,
             // // 'orderby'        => 'post__in',
             'paged'          => $paged,
-            'meta_key' => 'featured',
-            'meta_value' => '1'
+
+            // 'meta_key' => 'featured',
+            // 'meta_value' => '1'
+
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'featured',
+                    'value' => '1',
+                    'compare' => '='
+                ),
+                array(
+                    'key' => 'Homepage',
+                    'value' => '1',
+                    'compare' => '='
+                )
+            )
             // // 'category_name' => 'new',
             // 'tax_query' =>array(
             //     'relation' => 'OR',
