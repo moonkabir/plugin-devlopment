@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Options Demo
-Plugin URI: https://github.com/moonkabir/plugin-devlopment/tree/master/wp-content/plugins
+Plugin URI: https://github.com/moonkabir/plugin-devlopment/tree/master/wp-content/plugins/OptionsDemo
 Description: WordPress 
 Version: 1.0
 Author: Moon Kabir
@@ -11,7 +11,7 @@ Text Domain: optionsdemo
 Domain Path: /languages/
 */
 
-
+require_once plugin_dir_path(__FILE__) . "/options-demo-form.php";
 class OptionsDemo_Settings_Page
 {
     public function __construct()
@@ -43,6 +43,8 @@ class OptionsDemo_Settings_Page
         $capability = 'manage_options';
         $slug       = 'optionsdemo';
         $callback   = array($this, 'optionsdemo_settings_content');
+        // ai khane options page deway setting e gece,aro page ase
+        // add_menu_page($page_title, $menu_title, $capability, $slug, $callback);
         add_options_page($page_title, $menu_title, $capability, $slug, $callback);
     }
 
