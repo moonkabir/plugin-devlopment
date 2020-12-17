@@ -13,7 +13,8 @@ class OptionsDemoTwo
         $capability = 'manage_options';
         $slug       = 'optionsdemopage';
         $callback   = array($this, 'optionsdemo_page_content');
-        add_menu_page($page_title, $menu_title, $capability, $slug, $callback);
+        $icon_url  = "dashicons-admin-tools";
+        add_menu_page($page_title, $menu_title, $capability, $slug, $callback, $icon_url);
     }
     public function optionsdemo_page_content()
     {
