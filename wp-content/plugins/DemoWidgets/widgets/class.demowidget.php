@@ -24,19 +24,19 @@ class DemoWidget extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'latitude' ) ); ?>"><?php _e( 'Latitude', 'demowidget' ) ?></label>
-            <input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'latitude' ) ); ?>"
+            <input class="widefat" type="number" id="<?php echo esc_attr( $this->get_field_id( 'latitude' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'latitude' ) ) ?>"
                    value="<?php echo esc_attr( $latitude ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'Longitude' ) ); ?>"><?php _e( 'Longitude', 'demowidget' ) ?></label>
-            <input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'longitude' ) ); ?>"
+            <input class="widefat" type="number" id="<?php echo esc_attr( $this->get_field_id( 'longitude' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'longitude' ) ) ?>"
                    value="<?php echo esc_attr( $longitude ); ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>"><?php _e( 'Email', 'demowidget' ) ?></label>
-            <input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>"
+            <input class="widefat" type="email" id="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'email' ) ) ?>"
                    value="<?php echo esc_attr( $email ); ?>">
         </p>
