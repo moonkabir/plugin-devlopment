@@ -73,14 +73,26 @@
             });
         }
 
-        if(wp.customize !== undefined){
-            $(".customize-control").on("expand",function(e){
-                var widget_id = $(this).attr('id');
-                if(widget_id.indexOf('demowidget_advertisement')!==-1){
-                    prefetch();
-                }
-            });
-        }
+
+
+        $( document ).on( 'widget-added', function(event, widget) {
+                console.log(widget);
+                prefetch();
+        });
+
+
+        // if(wp.customize !== undefined){
+        //     $(document).on("expand",function(e){
+        //         var widget_id = $(this).attr('id');
+                
+        //         if(widget_id.indexOf('demowidget_advertisement')!==-1){
+        //             prefetch();
+        //             control.log(widget_id)
+        //         }
+        //     });
+        // }
+
+
 
         prefetch();
     });
